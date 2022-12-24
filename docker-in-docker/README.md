@@ -6,7 +6,7 @@ In this approach, we base our image from `docker:dind` ([see more](https://www.d
 - To connect inside the container `docker exec -it dind sh`
 - Once inside,
   - `docker ps -a` should be empty.
-  - Trying to mount the `/mydir` directory will succeed 
+  - Trying to mount the `/mydir` directory should succeed and print the content of the file
   ```sh
   docker run -it --rm -v /mydir:/innerdir busybox cat /innerdir/myfile.txt
   ```
