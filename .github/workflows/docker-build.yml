@@ -1,0 +1,22 @@
+name: Docker Build CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build docker-from-docker image
+      run: docker build ./docker-from-docker -t dfd
+      
+    - name: Build docker-in-docker image
+      run: docker build ./docker-in-docker -t dind
