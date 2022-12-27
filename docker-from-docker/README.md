@@ -7,7 +7,7 @@ In this approach, we install [Docker CLI](https://docs.docker.com/engine/referen
   - On Windows `docker run -it --rm -v //var/run/docker.sock:/var/run/docker.sock dfd bash`
 - Once inside the container
   - `docker ps -a` should list all the containers running on the host machine.
-  - Trying to mount the `/mydir` directory will fail 
+  - Trying to mount the `/mydir` directory will fail as the directory exists only inside the container and not on the host machine.
   ```sh
   docker run -it --rm -v /mydir:/innerdir busybox cat /innerdir/myfile.txt
   ```
